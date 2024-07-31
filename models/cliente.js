@@ -21,10 +21,10 @@ export const Cliente = connection.define("cliente", {
 });
 
 // Associação 1:1 (cliente - endereco)
-Cliente.hasOne(Endereco);
+Cliente.hasOne(Endereco, { onDelete: "CASCADE" });
 Endereco.belongsTo(Cliente);
 
 // associação 1:N (cliente-PlanoTreino)
 
-Cliente.hasMany(PlanoTreino);
+Cliente.hasMany(PlanoTreino, { onDelete: "CASCADE" });
 PlanoTreino.belongsTo(Cliente);
